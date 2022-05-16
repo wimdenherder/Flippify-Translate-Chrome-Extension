@@ -1,0 +1,42 @@
+{
+  "name": "Translate-selection",
+  "description": "Translate-selection",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "__MSG_PageActionDefaultTitle__",
+    "default_icon": {
+      "19": "icon/on19.png",
+      "24": "icon/on24.png",
+      "32": "icon/on32.png"
+    }
+  },
+  "options_page": "options.html",
+  "commands": {
+    "Ctrl+M": {
+      "suggested_key": {
+        "default": "Ctrl+M",
+        "mac": "Command+M"
+      },
+      "description": "Ctrl+M."
+    }
+  }
+}

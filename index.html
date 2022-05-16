@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>test</title>
+  </head>
+  <body>
+    New page!
+    <span class="original-text" style="display: none"
+      ><a href="/docs/extensions/mv3/declare_permissions#host-permissions"
+        >Host permissions</a
+      >
+      and
+      <a href="/docs/extensions/mv3/content_scripts/">content script</a>
+      matching are <span class="original-text" style="display: none">based</span
+      ><span class="translated-text" style="background-color: yellow"
+        >basado</span
+      >
+      on a set of URLs defined by match patterns. A match pattern is essentially
+      a URL that begins with a permitted scheme (<code>http</code>,
+      <code>https</code>, <code>file</code>, or <code>ftp</code>, and that can
+      contain '<code>*</code>' characters. The special pattern
+      <code>&lt;all_urls&gt;</code> matches any URL that starts with a permitted
+      scheme. Each match pattern has 3 parts:</span
+    >
+    <span
+      onclick="flipBack(this)"
+      class="translated-text"
+      style="background-color: yellow"
+      >basado</span
+    >
+    <span
+      onclick="(() => { 
+        console.log(this);
+        this.previousElementSibling.style.display = 'block';
+        this.parentNode.removeChild(this);
+      })()"
+      class="translated-text"
+      style="background-color: yellow"
+      >click</span
+    >
+
+    <script>
+      function flipBack(element) {
+        console.log({ element });
+        element.previousElementSibling.style.display = "block";
+        element.parentNode.removeChild(element);
+      }
+    </script>
+  </body>
+</html>
