@@ -4,6 +4,8 @@ Select text on a page and it will automatically translate before your eyes! (and
 
 ![Whatsapp in French](/screenshots/whatsapp-french.png?raw=true "Whatsapp in French")
 
+![Whatsapp in French](/screenshots/telegram-spanish.png?raw=true "Whatsapp in French")
+
 # Installation
 
 Source: https://developer.chrome.com/extensions/getstarted#unpacked
