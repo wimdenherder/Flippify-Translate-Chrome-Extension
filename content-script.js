@@ -17,9 +17,12 @@ main();
 
 async function getEnabledSetting() {
   return new Promise((resolve, reject) => {
-    chrome.storage.sync.get(["enabled"], function (result) {
-      resolve(result.enabled);
-    });
+    chrome.storage.sync.get(
+      ["enabledExtensionSelectTranslate"],
+      function (result) {
+        resolve(result.enabledExtensionSelectTranslate);
+      }
+    );
   });
 }
 
@@ -117,10 +120,12 @@ async function processSelection() {
 function flipBack() {
   const element = window.event.target || window.event.srcElement;
   console.log({ element });
-  element.previousElementSibling.outerHTML =
-    element.previousElementSibling.innerHTML;
-  // element.previousElementSibling.style.display = "block";
-  element.parentNode.removeChild(element);
+  if (element.previousElementSibling) {
+    element.previousElementSibling.outerHTML =
+      element.previousElementSibling.innerHTML;
+    // element.previousElementSibling.style.display = "block";
+    element.parentNode.removeChild(element);
+  }
 }
 
 function unwrap(selector) {

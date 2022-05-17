@@ -3,33 +3,41 @@ const settings = {
   language: "Espanyol",
   langCode: "es",
   color: "yellow",
-  enabled: true,
+  enabledExtensionSelectTranslate: true,
 };
 
 chrome.runtime.onInstalled.addListener(() => {
-  const { language, color, langCode, enabled } = settings;
+  const { language, color, langCode, enabledExtensionSelectTranslate } =
+    settings;
   console.log("After installation web extension. Default settings are set: ", {
     language,
     color,
     langCode,
-    enabled,
+    enabledExtensionSelectTranslate,
   });
   chrome.storage.sync.set({ language });
   chrome.storage.sync.set({ color });
   chrome.storage.sync.set({ langCode });
-  chrome.storage.sync.set({ enabled });
+  chrome.storage.sync.set({ enabledExtensionSelectTranslate });
 });
 
 chrome.action.onClicked.addListener(function (tab) {
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
     const tabId = tabs[0].id;
-    chrome.storage.sync.get(["enabled"], function (result) {
-      const enabled = !result.enabled;
-      updateExtensionIcon(tabId, enabled);
-      chrome.storage.sync.set({ enabled }, function () {
-        console.log({ enabled });
-      });
-    });
+    chrome.storage.sync.get(
+      ["enabledExtensionSelectTranslate"],
+      function (result) {
+        const enabledExtensionSelectTranslate =
+          !result.enabledExtensionSelectTranslate;
+        updateExtensionIcon(tabId, enabledExtensionSelectTranslate);
+        chrome.storage.sync.set(
+          { enabledExtensionSelectTranslate },
+          function () {
+            console.log({ enabledExtensionSelectTranslate });
+          }
+        );
+      }
+    );
   });
 });
 
