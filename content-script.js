@@ -59,8 +59,7 @@ async function translate(text, source, target) {
   );
   const json = await response.json();
   if (!json || !json.sentences) return "";
-  const translated = json.sentences[0].trans;
-  return translated;
+  return json.sentences[0].trans;
 }
 
 function speak(text, language) {
